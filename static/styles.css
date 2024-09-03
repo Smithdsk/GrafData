@@ -1,0 +1,56 @@
+/* Estilos generales para toda la p√°gina */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff6f00; /* Naranja fosforescente */
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.graph-container {
+    width: 800px; /* Ancho deseado */
+    height: 600px; /* Alto deseado */
+    margin: auto; /* Centrar en la p·gina */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #333; /* Fondo oscuro para los gr·ficos */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Sombra naranja */
+}
+
+/* Estilos espec√≠ficos para el Dashboard */
+.graph-container {
+    margin-bottom: 20px;
+    background-color: #333; /* Fondo oscuro para los gr√°ficos */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.5); /* Sombra naranja */
+}
+

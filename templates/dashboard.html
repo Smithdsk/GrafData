@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrafData</title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Agrega los enlaces a los archivos JavaScript de Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style>
+    /* Estilo para la tabla */
+    table.custom-table {
+        border-collapse: collapse; /* Elimina los espacios entre celdas y filas */
+        width: 50%; /* Ancho de la tabla, ajustable según necesidad */
+        margin-bottom: 20px; /* Margen inferior de la tabla */
+        font-size: 12pt; /* Tamaño de la fuente para Word */
+        font-family: 'Segoe UI'; /* Fuente aplicada a la tabla */
+    }
+
+    /* Estilo para la fila principal (título) */
+    th:first-child {
+        background-color: #8b0000; /* Color de fondo rojo oscuro */
+        color: white; /* Color del texto blanco */
+    }
+
+    /* Estilo para los títulos que no son la fila principal */
+    th:not(:first-child) {
+        background-color: #8b0000; /* Color de fondo rojo oscuro */
+        color: white; /* Color del texto blanco */
+    }
+
+    /* Estilo para las filas de datos alternas */
+    tr:nth-child(even) td {
+        background-color: #dcdcdc; /* Color de fondo gris oscuro para filas pares */
+    }
+
+    tr:nth-child(odd) td {
+        background-color: #f2f2f2; /* Color de fondo gris claro para filas impares */
+    }
+
+    /* Estilo para las celdas */
+    td {
+        border: 1px solid #ddd; /* Bordes de las celdas */
+        padding: 8px; /* Espaciado interno de las celdas */
+        text-align: left; /* Alineación del texto a la izquierda */
+    }
+
+    /* Estilo para los contenedores de los gráficos */
+    .graph-container {
+        float: left; /* Los gráficos se alinean a la izquierda */
+        width: 50%; /* Cada contenedor de gráfico ocupa la mitad del ancho disponible */
+        padding: 0 15px; /* Espaciado interno de los contenedores de gráficos */
+    }
+
+    /* Estilo para el enlace de descarga */
+    .download-link {
+        display: block; /* El enlace de descarga se muestra como un bloque */
+        margin-top: 20px; /* Margen superior del enlace de descarga */
+    }
+
+    /* Estilo para el contenedor principal */
+    .container {
+        width: 80%; /* Ancho del contenedor principal */
+        margin: 0 auto; /* Centrar el contenedor principal */
+    }
+
+    /* Estilo para los gráficos */
+    .graph {
+        margin: 20px 0; /* Margen superior e inferior de los gráficos */
+    }
+
+    /* Estilo para las tablas */
+    .table {
+        width: 100%; /* Ancho de la tabla */
+        margin: 20px 0; /* Margen superior e inferior de la tabla */
+        border-collapse: collapse; /* Elimina los espacios entre celdas y filas */
+    }
+
+    /* Estilo para los bordes de la tabla, encabezados y celdas */
+    .table, .table th, .table td {
+        border: 1px solid black; /* Bordes de la tabla, encabezados y celdas */
+    }
+
+    /* Estilo para el relleno y alineación del texto en los encabezados y celdas */
+    .table th, .table td {
+        padding: 8px; /* Espaciado interno de las celdas */
+        text-align: left; /* Alineación del texto a la izquierda */
+    }
+
+    /* Estilo para las barras */
+    .bar-container {
+        display: flex; /* Contenedor de barras usando flexbox */
+        align-items: center; /* Alineación de los elementos centrada verticalmente */
+    }
+
+    /* Estilo para la barra */
+    .bar {
+        height: 20px; /* Altura de la barra */
+        background-color: #990033; /* Color de fondo de la barra */
+        border-radius: 0px; /* Bordes de la barra */
+        margin-right: 5px; /* Espaciado a la derecha de la barra */
+    }
+
+    /* Estilo para el texto dentro del contenedor de barras */
+    .bar-container span {
+        white-space: nowrap; /* Evita el salto de línea en el texto */
+    }
+</style>
+
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Tabla 4. Principales resultados de los viajes del turismo receptor</h1>
+    <table class="custom-tablea4">
+        <thead>
+            <tr>
+                <th>Viajes por visitantes</th>
+                <th>Viajes por turismo</th>
+                <th>Viajes por excursionismo</th>
+                <th>Gasto promedio por viaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in table_data_Tabla_4 %}
+            <tr>
+                <td>{{ data[4] }}</td>
+                <td>{{ data[5] }}</td>
+                <td>{{ data[6] }}</td>
+                <td>{{ data[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    /* Ancho específico para cada columna */
+    .custom-tablea4 th:nth-child(1), .custom-tablea4 td:nth-child(1) {
+        width: 30%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+    .custom-tablea4 th:nth-child(2), .custom-tablea4 td:nth-child(2) {
+        width: 30%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+    .custom-tablea4 th:nth-child(3), .custom-tablea4 td:nth-child(3) {
+        width: 20%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+    .custom-tablea4 th:nth-child(4), .custom-tablea4 td:nth-child(4) {
+        width: 20%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+
+    /* Estilo para la tabla */
+    table.custom-tablea4 {
+        border-collapse: collapse;
+        width: 57%; /* Cambia este valor al tamaño deseado */
+        margin-bottom: 20px;
+        font-size: 10pt; /* Tamaño de la fuente para Word */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplicar la fuente Segoe UI */
+    }
+</style>
+
+
+
+            <h2> Gráfico 15. Participación del gasto por rubro de los viajes por excursionismo </h2>
+        <div class="graph">
+            <img src="{{ graphs[0] }}">
+        </div>
+
+            <h2> Gráfico 16. Promoción turística  </h2>
+        <div class="graph">
+            <img src="{{ graphs[1] }}">
+        </div>
+
+        <div class="container">
+            <h1>Tabla 5. Promoción turística, recomendación del destino.</h1>
+            <table class="custom-tablea5">
+                <thead>
+                            <tr>
+                <th colspan="2">Si</th>
+                <th colspan="2">No</th>
+                            </tr>
+                    <tr>
+                        <th>Número de viajes</th>
+                        <th>Participación %</th>
+                        <th>Número de viajes</th>
+                        <th>Participación %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in table_data_Tabla_5 %}
+                    <tr>
+                        <td>{{ data[4] }}</td>
+                        <td>{{ data[5] }}</td>
+                        <td>{{ data[6] }}</td>
+                        <td>{{ data[7] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+<style>
+    /* Ancho específico para cada columna */
+    .custom-tablea5 th:nth-child(1), .custom-tablea5 td:nth-child(1) {
+        width: 25%; /* Ajusta el porcentaje según sea necesario */
+        text-align: center
+    }
+    .custom-tablea5 th:nth-child(2), .custom-tablea5 td:nth-child(2) {
+        width: 25%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+    .custom-tablea5 th:nth-child(3), .custom-tablea5 td:nth-child(3) {
+        width: 25%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+    .custom-tablea5 th:nth-child(4), .custom-tablea5 td:nth-child(4) {
+        width: 25%; /* Ajusta el porcentaje según sea necesario */
+                text-align: center
+    }
+
+    /* Estilo para la tabla */
+    table.custom-tablea5 {
+        border-collapse: collapse;
+        width: 57%; /* Cambia este valor al tamaño deseado */
+        margin-bottom: 20px;
+        font-size: 10pt; /* Tamaño de la fuente para Word */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aplicar la fuente Segoe UI */
+    }
+</style>
+
+
+    </div>
+</body>
+</html>
